@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import axios from "axios";
 // import axios from 'axios';
 
 interface SelectedMovie {
@@ -100,9 +101,9 @@ const initialState: MovieSlice = {
 export const fetchPapularMovies = createAsyncThunk(
   "movies/fetchPapularMovies",
   async ({ page, category }: { page?: Number; category?: string }) => {
-    const res: SelectedMovie = await fetch(
+    const res: SelectedMovie = await axios.get(
       `https://api.themoviedb.org/3/${category}/popular?api_key=9fd5b693c3907797a39f74f5f46395e8&page=${page}&language=en-US`
-    ).then((data) => data.json());
+    ).then((response) => response.data);
     return res;
   }
 );
@@ -116,9 +117,9 @@ export const fetchSerchedMovies = createAsyncThunk(
     searchedValue?: string;
     category?: string;
   }) => {
-    const res: SelectedMovie = await fetch(
+    const res: SelectedMovie = await axios.get(
       `https://api.themoviedb.org/3/search/${category}?api_key=9fd5b693c3907797a39f74f5f46395e8&language=en-US&query=${searchedValue}&page=1&include_adult=false&language=en-US`
-    ).then((data) => data.json());
+    ).then((response) => response.data);
     return res;
   }
 );
@@ -126,9 +127,10 @@ export const fetchSerchedMovies = createAsyncThunk(
 export const fetchSelectedMovie = createAsyncThunk(
   "movies/fetchSelectedMovie",
   async ({ id, category }: { id?: Number | undefined; category?: string }) => {
-    const res: SelectedMovie = await fetch(
+    const res: SelectedMovie = await axios
+    .get(
       `https://api.themoviedb.org/3/${category}/${id}?api_key=9fd5b693c3907797a39f74f5f46395e8&append_to_response=videos&language=en-US`
-    ).then((data) => data.json());
+    ).then((response) => response.data);
     return res;
   }
 );
@@ -147,9 +149,10 @@ export const fetchSelectedYearMovie = createAsyncThunk(
     const releaseDate: string =
       category === "movie" ? "primary_release_date" : "first_air_date";
 
-    const res: SelectedMovie = await fetch(
+    const res: SelectedMovie = await axios
+    .get(
       `https://api.themoviedb.org/3/discover/${category}?api_key=9fd5b693c3907797a39f74f5f46395e8&${releaseDate}.gte=${selectedYear}-01-01&${releaseDate}.lte=${selectedYear}-12-31&page=${page}`
-    ).then((data) => data.json());
+    ).then((response) => response.data);
     return res;
   }
 );
