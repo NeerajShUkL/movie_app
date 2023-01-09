@@ -80,7 +80,7 @@ const Movie: React.FC = () => {
               ? selectedMovie?.overview
               : selectedMovie?.overview?.substring(0, 250) + "..."}
           </Typography>
-          <Typography component="legend">Rating : </Typography>
+          <Typography component="legend">Rating By People: </Typography>
           <Rating name="no-value" value={rating} readOnly />
           <Typography variant="body2" color="text.secondary" component="div">
             Release Date: {result}
