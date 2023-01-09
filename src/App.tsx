@@ -16,6 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/movie_app" element={<Home />} />
         <Route path="/favorite" element={<Favorite />} />
         <Route path={`/${category}`} element={<Home />} />
         <Route path={`/${category}/${movieId}`} element={<Movie />} />
