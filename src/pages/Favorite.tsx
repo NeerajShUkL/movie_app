@@ -14,7 +14,7 @@ const Favorite = () => {
   const favoriteList: ListOfMovies = useSelector(
     (state: RootState) => state.movies.favoriteList
   );
-  const favoriteMovies: Number[] = useSelector(
+  const favoriteMovies: number[] = useSelector(
     (state: RootState) => state.movies.favorite
   );
 
@@ -59,7 +59,7 @@ const Favorite = () => {
     ) : (
       favoriteList?.map((movieData: ListOfMovies) => {
         let bool = false;
-        favoriteMovies.map((fid: Number) => {
+        favoriteMovies.map((fid: number) => {
           if (fid === movieData.id) {
             bool = true;
           }

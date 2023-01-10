@@ -48,7 +48,7 @@ const Home = () => {
   const loading: boolean = useSelector(
     (state: RootState) => state.movies.loading
   );
-  const page: Number = useSelector((state: RootState) => state.movies.page);
+  const page: number = useSelector((state: RootState) => state.movies.page);
   const category: string = useSelector(
     (state: RootState) => state.movies.category
   );
@@ -58,7 +58,7 @@ const Home = () => {
   const selectedYear: string = useSelector(
     (state: RootState) => state.movies.selectedYear
   );
-  const favoriteMovies: Number[] = useSelector(
+  const favoriteMovies: number[] = useSelector(
     (state: RootState) => state.movies.favorite
   );
 
@@ -132,7 +132,7 @@ const Home = () => {
     ) : (
       listOfMovies?.map((movieData: Movies) => {
         let bool = false;
-        favoriteMovies.map((fid: Number) => {
+        favoriteMovies.map((fid: number) => {
           if (fid === movieData.id) {
             bool = true;
           }
@@ -208,7 +208,7 @@ const Home = () => {
       <Grid container spacing={2}>
         {loading ? circularProgress : movieCardShow}
       </Grid>
-      <BottomNavigation sx={{ position: "fixed", bottom: 0, width: 1.0 }}>
+      <BottomNavigation sx={{ bottom: 0, width: 1.0 }}>
         <Stack
           spacing={2}
           direction="row"

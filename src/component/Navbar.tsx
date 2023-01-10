@@ -67,7 +67,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Navbar: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { searchedValue } = useSelector((state: RootState) => state.movies);
-  const page: Number = useSelector((state: RootState) => state.movies.page);
+  const page: number = useSelector((state: RootState) => state.movies.page);
   const category: string = useSelector(
     (state: RootState) => state.movies.category
   );

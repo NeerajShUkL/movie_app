@@ -9,18 +9,18 @@ interface SelectedMovie {
 
 interface MovieSlice {
   loading: boolean;
-  page: Number;
+  page: number;
   category: string;
   totalYear: string[];
   selectedYear: string | any;
   searchedValue: string;
   movies: SelectedMovie;
   searchedMovie: SelectedMovie;
-  movieId: Number;
+  movieId: number;
   movieTitle: string;
   selectedMovie: SelectedMovie;
   listOfMovies: SelectedMovie;
-  favorite: Number[];
+  favorite: number[];
   favoriteList: SelectedMovie;
 }
 
@@ -126,7 +126,7 @@ export const fetchSerchedMovies = createAsyncThunk(
 
 export const fetchSelectedMovie = createAsyncThunk(
   "movies/fetchSelectedMovie",
-  async ({ id, category }: { id?: Number | undefined; category?: string }) => {
+  async ({ id, category }: { id?: number | undefined; category?: string }) => {
     const res: SelectedMovie = await axios
     .get(
       `https://api.themoviedb.org/3/${category}/${id}?api_key=9fd5b693c3907797a39f74f5f46395e8&append_to_response=videos&language=en-US`
@@ -144,7 +144,7 @@ export const fetchSelectedYearMovie = createAsyncThunk(
   }: {
     category?: string;
     selectedYear?: string;
-    page?: Number;
+    page?: number;
   }) => {
     const releaseDate: string =
       category === "movie" ? "primary_release_date" : "first_air_date";
@@ -164,10 +164,10 @@ export const movieSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.searchedValue = action.payload;
     },
-    setPage: (state, action: PayloadAction<Number>) => {
+    setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
-    setMovieId: (state, action: PayloadAction<Number>) => {
+    setMovieId: (state, action: PayloadAction<number>) => {
       // console.log("mi", action.payload)
       state.movieId = action.payload;
     },
@@ -191,7 +191,7 @@ export const movieSlice = createSlice({
       // console.log("ct", action.payload)
       state.selectedYear = action.payload;
     },
-    setFavorite: (state, action: PayloadAction<Number>) => {
+    setFavorite: (state, action: PayloadAction<number>) => {
       // console.log("fid", action.payload)
       state.favorite.push(action.payload);
     },
@@ -199,14 +199,14 @@ export const movieSlice = createSlice({
       // console.log("fid", action.payload)
       state.favoriteList.push(action.payload);
     },
-    removeFavorite: (state, action: PayloadAction<Number>) => {
+    removeFavorite: (state, action: PayloadAction<number>) => {
       // state.favorite = initialState
       state.favorite.splice(
-        state.favorite.findIndex((fid: Number) => fid === action.payload),
+        state.favorite.findIndex((fid: number) => fid === action.payload),
         1
       );
     },
-    removeFavoriteList: (state, action: PayloadAction<Number>) => {
+    removeFavoriteList: (state, action: PayloadAction<number>) => {
       // state.favorite = initialState
       state.favoriteList.splice(
         state.favoriteList.findIndex((fid: any) => fid.id === action.payload),

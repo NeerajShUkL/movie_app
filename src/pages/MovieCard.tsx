@@ -27,7 +27,7 @@ interface favorite {
 
 interface movieCard {
   favorite: boolean;
-  id: Number;
+  id: number;
   poster_path: string;
   title: string;
 }
