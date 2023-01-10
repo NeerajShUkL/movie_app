@@ -48,7 +48,7 @@ const MovieCard = (props: movieCard) => {
   const Color = favorite ? { color: "red" } : { color: "grey" };
 
   const handleMovieCardDetail = () => {
-    navigate(`/${category}/${id}`);
+    navigate(`/movie_app/${category}/${id}`);
     dispatch(setMovieId(id));
     dispatch(setMovieTital(title));
     dispatch(fetchSelectedMovie({ id, category }));
