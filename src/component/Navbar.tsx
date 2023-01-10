@@ -75,13 +75,13 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
   const onSearchBoxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    navigate(`/${category}`);
+    navigate(`/movie_app/${category}`);
     dispatch(setSearch(e.target.value));
     dispatch(setSelectedYear(""));
   };
 
   const handleHomeNavigation = (e: React.MouseEvent<HTMLElement>) => {
-    navigate(`/${category}`);
+    navigate(`/movie_app/${category}`);
     dispatch(fetchPapularMovies({ page, category }));
     dispatch(setSearch(""));
     dispatch(setSelectedYear(""));
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
     dispatch(setCategory("movie"));
     dispatch(setSelectedMovie(""));
     dispatch(setMovieTital(""));
-    navigate("/movie");
+    navigate("/movie_app/movie");
     dispatch(setSelectedYear(""));
     document.title = "Movies";
   };
@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
     dispatch(setCategory("tv"));
     dispatch(setSelectedMovie(""));
     dispatch(setMovieTital(""));
-    navigate("/tv");
+    navigate("/movie_app/tv");
     dispatch(setSelectedYear(""));
     document.title = "TV Show";
   };
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
     dispatch(setSearch(""));
     dispatch(setSelectedMovie(""));
     dispatch(setMovieTital(""));
-    navigate("/favorite");
+    navigate("/movie_app/favorite");
     document.title = "Favorite";
   };
   return (

@@ -15,11 +15,10 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/movie_app/" element={<Home />} />
-        <Route path="/favorite" element={<Favorite />} />
-        <Route path={`/${category}`} element={<Home />} />
-        <Route path={`/${category}/${movieId}`} element={<Movie />} />
+        <Route path="/movie_app/favorite" element={<Favorite />} />
+        <Route path={`/movie_app/${category}`} element={<Home />} />
+        <Route path={`/movie_app/${category}/${movieId}`} element={<Movie />} />
       </Routes>
     </BrowserRouter>
   );

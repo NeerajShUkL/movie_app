@@ -168,43 +168,43 @@ const Home = () => {
   };
   return (
     <Box sx={{ flexGrow: 1, mx: "auto", marginTop: 10, p: 3 }}>
-      <Grid
-        container
-        sx={{ justifyContent: "space-between", width: "100%", marginBottom: 2 }}
-      >
-        <Typography
-          display="inline"
-          text-align="left"
-          variant="h6"
-          sx={{ maxWidth: 300 }}
+        <Grid
+          container
+          sx={{ justifyContent: "space-between", width: "100%", marginBottom: 2 }}
         >
-          {Category}
-        </Typography>
-        <Box display="inline" text-align="Right">
-          <FormControl sx={{ m: 1, width: 150 }}>
-            <>
-              <InputLabel id="demo-simple-select-label">
-                Release Year
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={selectedYear}
-                label="Release Year"
-                onChange={handleSelectedYear}
-              >
-                {totalYear.map((year) => {
-                  return (
-                    <MenuItem key={year} value={year}>
-                      {year}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </>
-          </FormControl>
-        </Box>
-      </Grid>
+          <Typography
+            display="inline"
+            text-align="left"
+            variant="h6"
+            sx={{ maxWidth: 300 }}
+          >
+            {Category}
+          </Typography>
+          <Box display="inline" text-align="Right">
+            <FormControl sx={{ m: 1, width: 150 }}>
+              <>
+                <InputLabel id="demo-simple-select-label">
+                  Release Year
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={selectedYear}
+                  label="Release Year"
+                  onChange={handleSelectedYear}
+                >
+                  {totalYear.map((year) => {
+                    return (
+                      <MenuItem key={year} value={year}>
+                        {year}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </>
+            </FormControl>
+          </Box>
+        </Grid>
       <Grid container spacing={2}>
         {loading ? circularProgress : movieCardShow}
       </Grid>
